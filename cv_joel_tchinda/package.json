@@ -1,0 +1,12 @@
+{
+  "name": "cv-joel-tchinda",
+  "version": "1.0.0",
+  "description": "Génération à l'identique du CV Joël Deboston Tchinda (.docx)",
+  "main": "generate_cv.js",
+  "scripts": {
+    "build": "node generate_cv.js"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
