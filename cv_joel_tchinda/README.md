@@ -1,17 +1,33 @@
 # CV — Joël Deboston Tchinda (générateur `.docx`)
 
-Script Node.js qui reconstruit le CV au format Word (`.docx`) **à l'identique**
-du fichier d'origine : même mise en page, mêmes polices, tailles, couleurs,
-espacements, taquets de tabulation, indentations, tableau et liens hypertextes.
+Deux méthodes pour reconstruire le CV au format Word (`.docx`).
 
-## Utilisation
+## Méthode native (recommandée) — `build.js`
+
+Reconstruit le `.docx` directement à partir de son **OOXML d'origine** : les
+fichiers XML internes exacts écrits par Word (dans `src/`), simplement
+re-compressés dans le conteneur ZIP `.docx`. Le rendu est **strictement
+identique** à votre Word, car ce sont les mêmes octets.
 
 ```bash
 npm install
-node generate_cv.js
+node build.js
 ```
 
-Cela produit le fichier `Joel_Tchinda_alternance_data_EPITECH.docx`.
+Les 9 parties internes du paquet généré sont identiques **octet pour octet**
+à celles du document source.
+
+## Méthode librairie (alternative) — `generate_cv.js`
+
+Recrée le document programmatiquement avec la librairie `docx`. Le texte, les
+liens et le formatage sont fidèles, mais le rendu peut légèrement différer car
+la librairie regénère ses propres styles/thème.
+
+```bash
+npm run build:lib
+```
+
+Les deux produisent `Joel_Tchinda_alternance_data_EPITECH.docx`.
 
 ## Détails de reproduction
 
